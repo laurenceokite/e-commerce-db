@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new tag
   Tag.create({
-    tag_name: req.body.category_name
+    tag_name: req.body.tag_name
   }).then(dbCategory => {
     res.json(dbCategory);
   });
@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  Tag.findOne(req.body, {
+  Tag.update(req.body, {
     where: {
       id: req.params.id
     }
